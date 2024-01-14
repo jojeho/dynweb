@@ -1,0 +1,89 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+<html lang="kor">
+    <head>
+        <meta charset="UTF-8" />
+    </head>
+    <body>
+        <article>
+            구조
+            <ul>
+                <li>
+                    <h>header</h>
+                    <ul>
+                        <li>nav</li>
+                    </ul>
+                </li>
+
+                <li>
+                    main
+                    <ul>
+                        <li>
+                            section
+                            <ul>
+                                container
+                                <ul>box
+                                <ul>
+                                    <li>
+                                        article
+                                    </li>
+                                    <li>form</li>
+                                    <li>ul</li>
+                                </ul>
+                            </ul>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li>footer</li>
+            </ul>
+        </article>
+        <article>
+            분류
+            <ul>text</ul>
+            <ul>유저인터액션</ul>
+        </article>
+
+    <div>
+        <p>이것도 p</p>
+        <aside>이것은 asidd</aside>
+        <p>이것은 p</p>
+    </div>
+
+    <form action="#">
+        <fieldset disabled>
+          <!-- <legend>Disabled fieldset</legend> -->
+          <div>
+            <label for="name">Name: </label>
+            <input type="name" id="text" value="Chris" />
+          </div>
+          <div>
+            <label for="pwd">Archetype: </label>
+            <input type="password" id="text" value="Wookie" />
+          </div>
+        </fieldset>
+      </form>
+      <nav>
+        <a href="/">a</a>
+        <a href="/">a</a>
+        <a href="/">a</a>
+      </nav>
+    </body>
+
+</html>
+
+
+<style>
+    aside {
+        color:red;
+        float: left;
+    }
+
+    nav {
+        display: inline-flex;
+        flex-direction: column;
+        color:blue
+    }
+</style>

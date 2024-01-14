@@ -1,14 +1,131 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import { css } from '../../styled-system/css';
+import Layout from "../layouts/Layout.astro";
+import { primary as primarySection } from "../styles/section.css";
+// import { basic as button } from "../styles/button.css"
+import { css, cva } from "../../styled-system/css";
+import * as root from "@jjh/styles/section";
+
+// const sect=cva(root.basic)({visual:"solid", size:"lg"})
+// const sect=cva(root.basic)({})
+// const a=2;
+// let b=2;
+// const colors=['red','blue','orange']
+const primary='red'
+const color = primary
+const c ={color:color}
+const l ={flex:'column'}
+const article=css(Object.assign(c,l))
+console.log(main)
 ---
 
-<Layout title="Hompage 생성기">
+<Layout title="홈페이지 만들기">
 	<main>
-		<section class={css({color:'blue'})}>
-			안녕하세요
-		</section>	
+		<!-- <section class={css({color:'red'})}> -->
+		<section class={primarySection}>
+			<article class={article}>
+				<p>나의 많은 사람들은 생각하길 </p>
+				<p>또한 그런 사람들 조차</p>
+			</article>
+			<form>
+				<fieldset>
+					<legend>Fruit juice size</legend>
+					<p>
+						<input
+							type="radio"
+							name="size"
+							id="size_1"
+							value="small"
+						/>
+						<label for="size_1">Small</label>
+					</p>
+					<p>
+						<input
+							type="radio"
+							name="size"
+							id="size_2"
+							value="medium"
+						/>
+						<label for="size_2">Medium</label>
+					</p>
+					<p>
+						<input
+							type="radio"
+							name="size"
+							id="size_3"
+							value="large"
+						/>
+						<label for="size_3">Large</label>
+					</p>
+				</fieldset>
+			</form>
+
+		</section>
+
+		<section>
+
+			<section>
+				<h2>Contact information</h2>
+				<fieldset>
+				  <legend>Title</legend>
+				  <ul>
+					<li>
+					  <label for="title_1">
+						<input type="radio" id="title_1" name="title" value="A" />
+						Ace
+					  </label>
+					</li>
+					<li>
+					  <label for="title_2">
+						<input type="radio" id="title_2" name="title" value="K" />
+						King
+					  </label>
+					</li>
+					<li>
+					  <label for="title_3">
+						<input type="radio" id="title_3" name="title" value="Q" />
+						Queen
+					  </label>
+					</li>
+				  </ul>
+				</fieldset>
+				<p>
+				  <label for="name">
+					<span>Name: </span>
+					<strong><span aria-label="required">*</span></strong>
+				  </label>
+				  <input type="text" id="name" name="username" required />
+				</p>
+				<p>
+				  <label for="mail">
+					<span>Email: </span>
+					<strong><span aria-label="required">*</span></strong>
+				  </label>
+				  <input type="email" id="mail" name="usermail" required />
+				</p>
+				<p>
+				  <label for="pwd">
+					<span>Password: </span>
+					<strong><span aria-label="required">*</span></strong>
+				  </label>
+				  <input type="password" id="pwd" name="password" required />
+				</p>
+			  </section>
+			  
+		</section>
 	</main>
 </Layout>
+<style>
+	img {
+		background-color: red;
+	}
 
+	figcaption {
+		color: aqua;
+	}
+
+	.container {
+		color: blue;
+	}
+
+
+</style>

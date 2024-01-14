@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f8f8; /* Light gray background */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333; /* Dark gray text color */
+        }
+
+        :root {
+            --bg-color: #fff; /* White background */
+            --text-color: #333; /* Dark gray text color */
+            --accordion-bg: #3498db; /* Blue background for accordion */
+            --accordion-hover: #2980b9; /* Darker blue on hover or active state for accordion */
+            --border-color: #ecf0f1; /* Light border color */
+            --accordion-padding: 18px; /* Padding for accordion */
+            --transition-duration: 0.3s; /* Duration for transitions */
+        }
+
+        h2 {
+            color: #3498db; /* Blue heading color */
+        }
+
+        .accordion {
+            background-color: var(--accordion-bg); /* Using a CSS variable for accordion background color */
+            color: #fff; /* White text color */
+            cursor: pointer;
+            padding: var(--accordion-padding);
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 18px;
+            transition: background-color var(--transition-duration); /* Using a CSS variable for transition duration */
+            border-bottom: 1px solid var(--border-color); /* Using a CSS variable for border color */
+        }
+
+        .active, .accordion:hover {
+            background-color: var(--accordion-hover); /* Using a CSS variable for hover or active background color */
+        }
+
+        .panel {
+            padding: 0 var(--accordion-padding);
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height var(--transition-duration) ease-out; /* Using a CSS variable for transition duration */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Accordion</h2>
+
+<button class="accordion">Section 1</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 2</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<button class="accordion">Section 3</button>
+<div class="panel">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const acc = document.getElementsByClassName("accordion");
+    let i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function(this: HTMLElement) {
+            this.classList.toggle("active");
+            const panel = this.nextElementSibling as HTMLElement;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+            } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>

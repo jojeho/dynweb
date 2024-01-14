@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Bar Example</title>
+  <style>
+    /* Custom properties for color and size */
+    :root {
+      --primary-color: #4CAF50;
+      --hover-color: #45a049;
+      --border-radius: 0.5rem;
+      --font-size: 14px;
+      --transition-duration: 0.3s;
+    }
+
+    /* Style for the search bar */
+    .inform {
+      display: flex;
+      align-items: center;
+    }
+
+    #keyword {
+      padding: 8px;
+      font-size: var(--font-size);
+      border: 1px solid var(--primary-color);
+      border-radius: var(--border-radius);
+      margin-right: 8px;
+      transition: border-color var(--transition-duration);
+    }
+
+    #keyword:active {
+      border-color: var(--hover-color);
+    }
+
+    .btn-search {
+      padding: 8px 12px;
+      font-size: var(--font-size);
+      background-color: var(--primary-color);
+      color: #fff;
+      border: none;
+      border-radius: var(--border-radius);
+      cursor: pointer;
+      transition: background-color var(--transition-duration);
+    }
+
+    .btn-search:hover {
+      background-color: var(--hover-color);
+    }
+  </style>
+</head>
+<body>
+  <form action="/search" method="get" class="inform">
+    <input type="hidden" name="searchOrder" value="">
+    <input type="text" title="검색어를 입력하세요" id="keyword" name="keyword" value="" autocomplete="off" class="ui-autocomplete-input">
+    <button type="submit" class="btn-search">검색</button>
+  </form>
+</body>
+</html>

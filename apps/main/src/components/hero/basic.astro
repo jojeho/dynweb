@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GoldenYears - Discover Comfort and Elegance</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f8f8; /* Light background color */
+    }
+
+    :root {
+      --hero-background-color: #ffd700; /* Golden color for hero background */
+      --hero-text-color: #333; /* Dark text color */
+      --hero-font-size: 28px; /* Default font size */
+    }
+
+    .hero-container {
+      position: relative;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background-color: var(--hero-background-color);
+      color: var(--hero-text-color);
+      opacity: 0;
+      animation: fadeIn 1.5s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: var(--hero-font-size);
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #333; /* Dark button color */
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero-container">
+  <div class="hero-content">
+    <h1>Welcome to GoldenYears</h1>
+    <p>Discover comfort and elegance in every moment.</p>
+    <a href="#learn-more" class="cta-button">&#9654; Learn More</a>
+  </div>
+</div>
+
+<!-- Additional content goes here -->
+
+</body>
+</html>

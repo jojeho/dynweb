@@ -1,0 +1,11 @@
+{
+  "extends": "@repo/typescript-config/react-library.json",
+  "compilerOptions": {
+    "outDir": "dist"
+  },
+  "include": ["src", "turbo"],
+  "exclude": ["node_modules", "dist"]
+}
+// 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
+
+   

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>만두가게</title>
+  <style>
+    :root {
+      --main-bg-color: #fbeded; /* Pastel pink */
+      --header-bg-color: #ffc0cb;  /* Pink */
+      --text-color: #333; /* Dark gray */
+      --tab-bg-color: #ffd700; /* Gold */
+      --tab-hover-color: #ffeb3b; /* Lighter yellow */
+      --tab-content-bg-color: #fff;
+      --tab-content-text-color: #333;
+      --font-family: 'Noto Sans KR', sans-serif;
+      --container-width: 60%;
+      --margin-auto: 20px;
+      --padding-10px: 10px;
+      --padding-20px: 20px;
+      --border-radius: 10px; /* Rounded corners for tabs */
+      --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --tab-transition-duration: 0.3s;
+    }
+
+    body {
+      font-family: var(--font-family);
+      margin: 0;
+      padding: 0;
+      background-color: var(--main-bg-color);
+    }
+ 
+
+    .tabs-container {
+      width: var(--container-width);
+      margin: var(--margin-auto) auto;
+      box-shadow: var(--box-shadow);
+    }
+
+    .tabs {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      background-color: var(--tab-bg-color);
+      border-top-right-radius: var(--border-radius);
+      border-top-left-radius: var(--border-radius);
+      overflow: hidden;
+    }
+
+    .tabs li {
+      cursor: pointer;
+      padding: var(--padding-10px);
+      flex: 1;
+      text-align: center;
+      background-color: var(--tab-bg-color);
+      color: var(--text-color);
+      transition: background-color var(--tab-transition-duration), color var(--tab-transition-duration);
+    }
+
+    .tabs li.current {
+      background-color: var(--tab-content-bg-color);
+      color: var(--tab-content-text-color);
+      border-bottom-color: transparent;
+      border-top-left-radius: 0; /* Remove top-left radius for the selected tab */
+      border-top-right-radius: 0; /* Remove top-right radius for the selected tab */
+    }
+
+    .tabs li:hover {
+      background-color: var(--tab-hover-color);
+    }
+
+    .tab-content {
+      display: none;
+      padding: var(--padding-20px);
+      background-color: var(--tab-content-bg-color);    
+      box-shadow: var(--box-shadow);
+    }
+
+    .tab-content.current {
+      display: block;
+      animation: fadeIn 0.5s ease-in-out; /* Fade-in animation */
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="tabs-container" class="tabs-container">
+    <ul id="tabs" class="tabs">
+      <li data-tab="tab1" class="current">메뉴 1</li>
+      <li data-tab="tab2">메뉴 2</li>
+      <li data-tab="tab3">메뉴 3</li>
+    </ul>
+
+    <div id="tab1" class="tab-content current">정성과 전통으로 만든 맛있는 만두.</div>
+    <div id="tab2" class="tab-content">독특한 만두 풍미를 경험해보세요.</div>
+    <div id="tab3" class="tab-content">특별한 만두 레시피의 맛을 만끽하세요.</div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabs = document.querySelectorAll('.tabs li');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const tabId = tab.getAttribute('data-tab');
+
+          tabs.forEach(t => t.classList.remove('current'));
+          document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('current'));
+
+          tab.classList.add('current');
+          document.getElementById(tabId)?.classList.add('current');
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>

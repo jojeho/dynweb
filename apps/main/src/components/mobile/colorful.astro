@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+
+/* Define CSS variables */
+:root {
+  --main-bg-color: #FF5252; /* Coral red */
+  --navbar-bg-color: #FF9800; /* Amber */
+  --navbar-hover-color: #FFC107; /* Yellow */
+  --icon-bg-color: #00BCD4; /* Cyan */
+  --active-bg-color: #4CAF50; /* Green */
+  --container-max-width: 480px;
+  --container-height: 500px;
+  --border-radius: 10px;
+}
+
+.mobile-container {
+  max-width: var(--container-max-width);
+  margin: auto;
+  background-color: var(--main-bg-color);
+  height: var(--container-height);
+  color: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: var(--navbar-bg-color);
+  position: relative;
+}
+
+.topnav #myLinks {
+  display: none;
+}
+
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+.topnav a.icon {
+  background: var(--icon-bg-color);
+  display: block;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.topnav a:hover {
+  background-color: var(--navbar-hover-color);
+  color: white;
+}
+
+.active {
+  background-color: var(--active-bg-color);
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<!-- Simulate a smartphone / tablet -->
+<div class="mobile-container">
+
+<!-- Top Navigation Menu -->
+<div class="topnav">
+  <a href="#home" class="active">Logo</a>
+  <div id="myLinks">
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+  </div>
+  <a href="javascript:void(0);" class="icon" id="toggleBtn">
+    <i class="fa fa-bars"></i>
+  </a>
+</div>
+
+<div style="padding-left:16px">
+  <h3>Colorful Mobile Navbar</h3>
+  <p>This example demonstrates how a navigation menu on a mobile/smartphone could look like.</p>
+  <p>Click on the hamburger menu (three bars) in the top right corner to toggle the menu.</p>
+</div>
+
+<!-- End smartphone / tablet look -->
+</div>
+
+<script>
+// TypeScript version
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('toggleBtn');
+    const myLinks = document.getElementById('myLinks');
+
+    if (toggleBtn && myLinks) {
+        toggleBtn.addEventListener('click', () => {
+            if (myLinks.style.display === 'block') {
+                myLinks.style.display = 'none';
+            } else {
+                myLinks.style.display = 'block';
+            }
+        });
+    }
+});
+</script>
+
+</body>
+</html>

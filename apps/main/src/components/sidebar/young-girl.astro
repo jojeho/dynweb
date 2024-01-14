@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Reset some default styles */
+        body, margin, padding {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6ff; /* Light purple background */
+            display: flex;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            height: 100vh;
+            width: 80px;
+            background-color: #ff66b2; /* Pink sidebar background */
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            transition: width 0.5s;
+            overflow-x: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .sidebar a {
+            padding: 16px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #ff3399; /* Dark pink hover background */
+        }
+
+        .logo {
+            font-size: 24px;
+            padding: 20px 0;
+        }
+
+        /* Content styles */
+        .content {
+            flex-grow: 1;
+            padding: 16px;
+        }
+    </style>
+    <script defer>
+        // Toggle sidebar function
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            sidebar.style.width = sidebar.style.width === '80px' ? '250px' : '80px';
+        }
+
+        // Initialize the application
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add click event listeners to the sidebar links
+            const sidebarLinks = document.querySelectorAll('.sidebar a');
+            sidebarLinks.forEach(link => link.addEventListener('click', toggleSidebar));
+        });
+    </script>
+    <title>Cute Sidebar</title>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-heart"></i> <!-- Cute heart icon -->
+        </div>
+        <a href="#" data-target="home"><i class="fas fa-home"></i> Home</a>
+        <a href="#" data-target="profile"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" data-target="messages"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#" data-target="settings"><i class="fas fa-cog"></i> Settings</a>
+    </div>
+
+    <div class="content">
+        <h2>Cute Main Content</h2>
+        <p>This is where your cute main content goes.</p>
+    </div>
+
+</body>
+</html>

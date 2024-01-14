@@ -5,18 +5,13 @@ export default defineConfig({
   preflight: true,
 
   // Where to look for your css declarations
-  
   include: ['./src/**/*.{ts,tsx,js,jsx,astro}', './pages/**/*.{ts,tsx,js,jsx,astro}'],
-
   // Files to exclude
   exclude: [],
 
   // Useful for theme customization
   theme: {
-    extend: {
-
-      
-    },
+    extend: {},
   },
 
   // The output directory for your css system

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cool Dumplings</title>
+  <style>
+    :root {
+      --primary-bg-color: #4CAF50; /* Green color for a fresh look */
+      --link-color: #fff;
+      --link-hover-color: #FFA500; /* Orange hover color for contrast */
+      --dropdown-bg-color: #4CAF50;
+      --dropdown-box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      --border-radius: 8px;
+    }
+
+    nav {
+      background-color: var(--primary-bg-color);
+      border-radius: var(--border-radius);
+      padding: 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      border-radius: var(--border-radius);
+      overflow: hidden;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    li {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: var(--link-color);
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    li a:hover {
+      background-color: var(--link-hover-color);
+      border-radius: var(--border-radius);
+    }
+
+    .submenu:hover .dropdown {
+      display: block;
+    }
+
+    .dropdown {
+      display: none;
+      position: absolute;
+      background-color: var(--dropdown-bg-color);
+      box-shadow: var(--dropdown-box-shadow);
+      border-radius: var(--border-radius);
+    }
+
+    .dropdown li {
+      float: none;
+      display: block;
+      text-align: left;
+      border-radius: var(--border-radius);
+    }
+
+    section {
+      padding: 20px;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    section h2 {
+      color: var(--primary-bg-color);
+      font-size: 2em;
+    }
+
+    section img {
+      max-width: 100%;
+      height: auto;
+      border-radius: var(--border-radius);
+      margin-bottom: 10px;
+    }
+
+    /* Define a fade-in animation */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li class="submenu">
+        <a href="#">Menu</a>
+        <ul class="dropdown">
+          <li><a href="#">Dumpling Types</a></li>
+          <li><a href="#">Side Dishes</a></li>
+          <li><a href="#">Drinks</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Order</a></li>
+    </ul>
+  </nav>
+
+  <section id="dumplings">
+    <h2>Cool Dumplings</h2>
+    
+    <div class="menu-item">
+      <img src="dumpling1.jpg" alt="Dumpling 1">
+      <h3>Awesome Dumplings</h3>
+      <p>Fresh beef and veggies make these dumplings a flavorful delight.</p>
+    </div>
+
+    <div class="menu-item">
+      <img src="dumpling2.jpg" alt="Dumpling 2">
+      <h3>Veggie Delight</h3>
+      <p>Healthy vegetable dumplings with a refreshing taste.</p>
+    </div>
+
+    <div class="menu-item">
+      <img src="dumpling3.jpg" alt="Dumpling 3">
+      <h3>Seafood Sensation</h3>
+      <p>Special dumplings with fresh seafood, capturing the essence of the sea.</p>
+    </div>
+  </section>
+</body>
+</html>
