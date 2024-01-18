@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro"
+import Card from "../components/card/Basic.astro"
+import { css } from "../../styled-system/css"
+import { hstack } from "../../styled-system/patterns"
+
+const p1 = {
+        imageSrc: "./만두.avif",
+        productName: "Dynamic Product",
+        productPrice: "$29.99",
+        productDescription: "Dynamic product description. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        alt:'aa'
+    };
+
+const p2 = {
+        imageSrc: "./만두.avif",
+        productName: "Dynamic Product",
+        productPrice: "$29.99",
+        productDescription: "Dynamic product description. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        alt:'aa'
+    };
+
+const p3 = {
+        imageSrc: "./만두.avif",
+        productName: "Dynamic Product",
+        productPrice: "$29.99",
+        productDescription: "Dynamic product description. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        alt:'aa'
+    };
+
+
+const ps=[p1,p2,p3];
+
+---
+<Layout title="메뉴소개">
+<div class={hstack({gap:2})}>
+    {ps.map((item)=><Card productData={item}></Card>)}
+    
+</div>
+
+</Layout>

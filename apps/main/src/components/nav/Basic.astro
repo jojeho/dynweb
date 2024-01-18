@@ -1,0 +1,48 @@
+---
+import "../index.css"
+import { css } from "../../styled-system/css";
+
+interface MenuItem {
+    label: string;
+    link: string;
+}
+
+interface MenuBar {
+    items: MenuItem[];
+}
+
+
+const myMenuBar: MenuBar = {
+    items: [
+        { label: "Home", link: "#home" },
+        { label: "News", link: "#news" },
+        { label: "Contact", link: "#contact" },
+        { label: "About", link: "#about" },
+    ],
+};
+
+const menuItemHoverStyle = {
+    backgroundColor: '#ddd',
+    color: 'red',
+  };
+
+const menuItemStyle = {
+    float: 'left',
+    display: 'block',
+    color: '#cd2f2f',
+    textAlign: 'center',
+    padding: '14px 16px',
+    textDecoration: 'none',
+    fontSize: '17px',
+    _hover: menuItemHoverStyle
+  };
+
+---
+
+{
+    myMenuBar.items.map((item) => (
+        <a href={item.link} class={css(menuItemStyle)}>
+            {item.label}
+        </a>
+    ))
+}

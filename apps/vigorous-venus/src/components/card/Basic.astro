@@ -1,0 +1,120 @@
+---
+
+import "../../index.css"
+import {css} from "../../../styled-system/css"
+
+interface ProductData {
+  imageSrc: string;
+  productName: string;
+  productPrice: string;
+  productDescription: string;
+  alt: string;  
+}
+
+interface props {
+  productData:ProductData
+}
+
+
+const {  productData } = Astro.props
+
+interface RootVariables {
+  primaryColor: string;
+  secondaryColor: string;
+  cardWidth: string;
+  cardMargin: string;
+}
+
+interface ProductCardStyles {
+  body: {
+    fontFamily: string;
+    margin: string;
+    padding: string;
+    boxSizing: string;
+  };
+  productCard: {
+    border: string;
+    borderRadius: string;
+    overflow: string;
+    width: string;
+    margin: string;
+  };
+  productImage: {
+    width: string;
+    height: string;
+    objectFit: string;
+  };
+  productInfo: {
+    padding: string;
+  };
+  productTitle: {
+    fontSize: string;
+    marginBottom: string;
+  };
+  productPrice: {
+    fontSize: string;
+    color: string;
+    marginBottom: string;
+  };
+  productDescription: {
+    fontSize: string;
+    color: string;
+  };
+}
+const primaryColor = "#5C3C11";
+
+const rootVariables: RootVariables = {
+  primaryColor: primaryColor,
+  secondaryColor: '#555',
+  cardWidth: '300px',
+  cardMargin: '20px',
+};
+
+const styles: ProductCardStyles = {
+  body: {
+    fontFamily: 'Arial, sans-serif',
+    margin: '0',
+    padding: '0',
+    boxSizing: 'border-box',
+  },
+  productCard: {
+    border: `1px solid ${rootVariables.primaryColor}`,
+    borderRadius: '8px',
+    overflow: 'hidden',
+    width: rootVariables.cardWidth,
+    margin: rootVariables.cardMargin,
+  },
+  productImage: {
+    width: '100%',
+    height: '200px',
+    objectFit: 'cover',
+  },
+  productInfo: {
+    padding: '15px',
+  },
+  productTitle: {
+    fontSize: '1.2em',
+    marginBottom: '10px',
+  },
+  productPrice: {
+    fontSize: '1.1em',
+    color: rootVariables.primaryColor,
+    marginBottom: '10px',
+  },
+  productDescription: {
+    fontSize: '0.9em',
+    color: rootVariables.secondaryColor,
+  },
+};
+
+
+---
+
+<div class={css(styles.productCard)}>
+   <img class={css(styles.productImage)} src={productData.imageSrc} alt={productData.alt}/>
+    <div class={css(styles.productInfo)}>
+        <div class={css(styles.productTitle)}>{productData.productName}</div>
+        <div class={css(styles.productPrice)}>{productData.productPrice}</div>
+        <div class={css(styles.productDescription)}>{productData.productDescription}</div>
+    </div>
+</div>

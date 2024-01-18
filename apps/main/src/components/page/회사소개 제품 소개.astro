@@ -1,13 +1,17 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>맛있는 만두 가게</title>
-    <style>
-        <style>
-  :root {
-    --background-color: #f0f0f0;
+---
+  type Product=
+  {
+    summary:string,
+    detail:string
+  }
+  const {products}:{products:Product[]} = Astro.props
+  const bg_color="#f0f0f0";
+---
+
+<style define:vars={{background_color}}>
+        
+  section {
+
     --header-bg-color: #333;
     --header-text-color: #fff;
     --homage-padding: 40px;
@@ -116,20 +120,13 @@
 
         <!-- Product features -->
         <div class="product-features">
-            <div class="feature">
-                <h3>다양한 종류의 만두</h3>
-                <p>풍부한 속재료와 다양한 종류의 만두를 즐겨보세요.</p>
-            </div>
-
-            <div class="feature">
-                <h3>신선한 재료</h3>
-                <p>우리는 항상 신선하고 품질 좋은 재료로 만두를 만듭니다.</p>
-            </div>
-
-            <div class="feature">
-                <h3>맛있는 소스</h3>
-                <p>특제 소스로 맛을 높인 우리만의 만두를 즐겨보세요.</p>
-            </div>
+           {products.map((item)=>{
+             <div class="feature">
+                <h3>{item.summary}</h3>
+                <p>{item.detail}}</p>
+              </div>
+           })}
+           
         </div>
 
         <!-- Call-to-action -->
@@ -138,5 +135,5 @@
 
     <!-- Add more sections and content as needed -->
 
-</body>
-</html>
+</section>
+

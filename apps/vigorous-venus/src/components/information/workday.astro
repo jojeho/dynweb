@@ -1,0 +1,61 @@
+---
+interface BusinessHours {
+  weekday: string;
+  saturday: string;
+  sunday: string;
+}
+
+const businessHours: BusinessHours = {
+  weekday: '9:00 AM - 6:00 PM',
+  saturday: '10:00 AM - 4:00 PM',
+  sunday: '휴무',
+};
+---
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .hours-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+
+    <div class="hours-container">
+        <h2>영업시간</h2>
+        <div class="weekday-hours">
+            <strong>월요일 - 금요일:</strong>
+            <ul>
+                <li>${businessHours.weekday}</li>
+            </ul>
+        </div>
+        <div>
+            <strong>토요일:</strong>
+            <ul>
+                <li>${businessHours.saturday}</li>
+            </ul>
+        </div>
+        <div>
+            <strong>일요일:</strong>
+            <ul>
+                <li>${businessHours.sunday}</li>
+            </ul>
+        </div>
+    </div>
+

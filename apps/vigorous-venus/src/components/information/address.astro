@@ -1,0 +1,72 @@
+---
+interface Address {
+  doRoad: string;
+  doJibun: string;
+}
+
+interface Phone {
+  phoneNumber: string;
+}
+
+interface LocationInfo {
+  address: Address;
+  phone: Phone;
+}
+
+const addressInfo: LocationInfo = {
+  address: {
+    doRoad: "서울 종로구 인사동 10길 11-3",
+    doJibun: "서울 종로구 관훈동 30-11",
+  },
+  phone: {
+    phoneNumber: "(02) 733-9240",
+  },
+};
+---
+
+<p>주소:</p>
+<div class="address-container">
+    <p>(도로명){addressInfo.address.doRoad}</p>
+    <p>(지번){addressInfo.address.doJibun}</p>
+</div>
+
+<div class="phone-container">
+    <p>전화번호:</p>
+    <p>{addressInfo.phone.phoneNumber}</p>
+</div>
+
+<style>
+   
+    .address-container, .phone-container {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin: 0;
+    }
+
+    .hours-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+
+        .weekday-hours {
+            margin-bottom: 10px;
+        }
+</style>

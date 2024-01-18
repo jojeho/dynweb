@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body {
+---
+ const bg_color="#4CAF50"
+---
+    
+    <style define:vars={{bg_color}}>
+        section {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f8f8; /* Light gray background */
             margin: 0;
@@ -13,10 +13,10 @@
         }
 
         :root {
-            --bg-color: #fff; /* White background */
+         
             --text-color: #333; /* Dark gray text color */
-            --accordion-bg: #3498db; /* Blue background for accordion */
-            --accordion-hover: #2980b9; /* Darker blue on hover or active state for accordion */
+            --accordion-bg: #4CAF50; /* Blue background for accordion */
+            --accordion-hover: #4CAF50; /* Darker blue on hover or active state for accordion */
             --border-color: #ecf0f1; /* Light border color */
             --accordion-padding: 18px; /* Padding for accordion */
             --transition-duration: 0.3s; /* Duration for transitions */
@@ -52,11 +52,12 @@
         }
     </style>
 </head>
-<body>
+<section>
 
 <h2>Accordion</h2>
+<p>aaa</p>
 
-<button class="accordion">Section 1</button>
+<button class="njs">Section 1</button>
 <div class="panel">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 </div>
@@ -90,5 +91,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-</body>
-</html>
+</section>
+

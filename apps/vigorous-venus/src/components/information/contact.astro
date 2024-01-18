@@ -1,0 +1,71 @@
+---
+
+// TypeScript Interfaces
+interface ContactInfo {
+  phoneNumber: string;
+  callCenter: string[];
+  reservationAvailability: {
+    weekday: string;
+    weekend: string;
+  };
+}
+
+// Sample data
+const contactInfo: ContactInfo = {
+  phoneNumber: '1588-1775(ARS)',
+  callCenter: ['02-2260-7114', '02-2260-7092'],
+  reservationAvailability: {
+    weekday: '평일 08:30 ~ 17:30',
+    weekend: '토요일 08:00 ~ 12:30',
+  },
+};
+
+---
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+
+<h2>연락처 정보</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>구분</th>
+            <th>번호</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>전화번호</td>
+            <td>${contactInfo.phoneNumber}</td>
+        </tr>
+        <tr>
+            <td>콜센터</td>
+            <td>${contactInfo.callCenter.join(', ')}</td>
+        </tr>
+        <tr>
+            <td>예약가능시간</td>
+            <td>평일 ${contactInfo.reservationAvailability.weekday} / 토요일 ${contactInfo.reservationAvailability.weekend}</td>
+        </tr>
+    </tbody>
+</table>

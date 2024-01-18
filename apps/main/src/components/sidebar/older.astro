@@ -1,0 +1,91 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    section {
+        --bg-color: #394240; /* Dark background */
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #2B2E4A, #394240);
+        background-color: var(--bg-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .sidebar {
+        width: 80px;
+        background: linear-gradient(to bottom, #47597E, #394240);
+        border-radius: 15px; /* Rounded corners */
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: width 0.5s;
+        overflow-x: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar a {
+        padding: 16px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        background: linear-gradient(to bottom, #5E7391, #47597E);
+        border-radius: 15px; /* Rounded corners on hover */
+    }
+
+    .logo {
+        font-size: 24px;
+        padding: 20px 0;
+        color: #fff;
+        font-family: 'Arial', sans-serif;
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 16px;
+        text-align: center;
+        color: #5E7391; /* Blue-gray text color */
+        font-size: 24px;
+    }
+
+    .sidebar a i {
+        font-size: 24px; /* Larger icon size */
+        margin-bottom: 8px; /* More space between icon and text */
+    }
+</style>
+
+<script defer>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.width = sidebar.style.width === '80px' ? '250px' : '80px';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => link.addEventListener('click', toggleSidebar));
+    });
+</script>
+
+<section>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-rainbow"></i>
+        </div>
+        <a href="#" data-target="home"><i class="fas fa-home"></i> Home</a>
+        <a href="#" data-target="profile"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" data-target="messages"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#" data-target="settings"><i class="fas fa-cogs"></i> Settings</a>
+    </div>
+    <div class='content'>Welcome to the Elegant Zone!</div>
+</section>

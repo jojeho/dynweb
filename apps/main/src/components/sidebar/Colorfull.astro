@@ -1,0 +1,89 @@
+---
+//    const bg_color="#FFD700";
+   const bg_color="blue"
+---
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style define:vars={{bg_color}}>
+    section {
+
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+        /* background: linear-gradient(135deg, #FFA07A, #87CEEB); */
+        background-color: var(--bg_color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+    }
+
+    .sidebar {
+        width: 80px;
+        background: linear-gradient(to bottom, #FF69B4, #FFD700);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        transition: width 0.5s;
+        overflow-x: hidden;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .sidebar a {
+        padding: 16px;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: 0.3s;
+    }
+
+    .sidebar a:hover {
+        background: linear-gradient(to bottom, #FF6347, #FF4500);
+    }
+
+    .logo {
+        font-size: 24px;
+        padding: 20px 0;
+        color: #fff;
+        font-family: 'Comic Sans MS', cursive, sans-serif;
+    }
+
+    .content {
+        flex-grow: 1;
+        padding: 16px;
+        text-align: center;
+        color: #FF6347;
+        font-size: 24px;
+    }
+</style>
+
+<script defer>
+    function toggleSidebar() {
+        const sidebar = document.querySelector('.sidebar');
+        sidebar.style.width = sidebar.style.width === '80px' ? '250px' : '80px';
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        sidebarLinks.forEach(link => link.addEventListener('click', toggleSidebar));
+    });
+</script>
+
+<section>
+    <div class="sidebar">
+        <div class="logo">
+            <i class="fas fa-rainbow"></i>
+        </div>
+        <a href="#" data-target="home"><i class="fas fa-sun"></i> Home</a>
+        <a href="#" data-target="profile"><i class="fas fa-star"></i> Profile</a>
+        <a href="#" data-target="messages"><i class="fas fa-heart"></i> Messages</a>
+        <a href="#" data-target="settings"><i class="fas fa-cog"></i> Settings</a>
+    </div>
+    <div class='content'>Welcome to the Fun Zone!</div>
+</section>

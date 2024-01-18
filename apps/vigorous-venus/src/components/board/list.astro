@@ -1,0 +1,68 @@
+---
+
+
+interface Article {
+  id: number;
+  title: string;
+  author: string;
+  date: string;
+  views: number;
+}
+
+const articles: Article[] = [
+  { id: 1, title: 'TypeScript 소개', author: '홍길동', date: '2022-01-01', views: 100 },
+  { id: 2, title: '반응형 웹 디자인 구축하기', author: '김영희', date: '2022-01-02', views: 150 },
+  { id: 3, title: 'JavaScript 기초', author: '이철수', date: '2022-01-03', views: 120 },
+];
+
+---
+
+<style>
+    body {
+        font-family: '맑은 고딕', 'Malgun Gothic', Arial, sans-serif;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<table>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>날짜</th>
+            <th>조회수</th>
+        </tr>
+    </thead>
+    <tbody>
+        {articles.map((article )=> (
+          <tr>
+              <td>{article.id}</td>
+              <td><a href="#;"
+                    hx-get={`/partials/view?id=${article.id}`}
+                    hx-target="#view"                
+                >{article.title}</a></td>
+              <td>{article.author}</td>
+              <td>{article.date}</td>
+              <td>{article.views}</td>
+          </tr>))
+        }
+    </tbody>
+</table>
+
+ 

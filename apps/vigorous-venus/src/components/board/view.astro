@@ -1,0 +1,58 @@
+---
+interface ArticleInfo {
+    creationDate: string;
+    author: string;
+    views: number;
+    content: string;
+    title:string,
+  }
+  const sampleContent = `
+  만두는 전통적인 한국 음식 중 하나로, 밀가루로 만든 피로 고기, 채소, 두부 등 다양한 재료를 감싸고 익힌 음식입니다.
+  손으로 간단하게 만들 수 있어 가정에서도 자주 만들어 먹는 대표적인 음식 중 하나입니다. 만두는 찐 만두, 굽는 만두,
+  물만두 등 여러 가지 방법으로 조리할 수 있습니다.
+
+  특히, 설날이나 명절 등의 특별한 날에는 가족이 모여 만두를 만들고 함께 먹는 전통이 있습니다.
+  각 가정에서는 자신만의 비법과 맛을 가진 만두를 만들어 낼 것이며, 이는 가족 간의 소중한 추억으로 이어집니다.
+`;
+
+const articleInfo: ArticleInfo = {
+  creationDate: '2023.05.16',
+  author: '관리자',
+  views: 267,
+  title:'만두란 무엇인가?',
+  content:sampleContent
+};
+
+
+---
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 20px;
+    }
+
+    .article-container {
+        border: 1px solid #ddd;
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    p {
+        margin-bottom: 10px;
+    }
+
+    h2{
+        font-size:20px;
+        
+    }
+
+</style>
+</head>
+<body>
+
+<div class="article-container">
+    <h2>{articleInfo.title}</h2>
+    <p><strongt>생성 날짜:</strong> {articleInfo.creationDate} &nbsp;|&nbsp; <strong>작성자:</strong> {articleInfo.author} &nbsp;|&nbsp; <strong>조회수:</strong> {articleInfo.views}</p>
+    <p> {articleInfo.content}</p>
+</div>

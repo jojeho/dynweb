@@ -1,0 +1,10 @@
+---
+ import Notice from "../../components/board/list.astro"
+ export const partial = true;
+ const page=Astro.url.searchParams.get("page")
+ 
+---
+
+<div>
+    <Notice></Notice>
+</div>
