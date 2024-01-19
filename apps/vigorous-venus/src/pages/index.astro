@@ -2,11 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Menubar from "../components/nav/bb.astro";
 import Body from "../components/introduce/Basic.astro"
-
+import Second from "../components/introduce/normal.astro"
+import {hstack} from "../../styled-system/patterns"
 ---
 <Layout>
 <Menubar></Menubar>
+<div class={hstack({gap:2})} >
+<Second></Second>
 <Body></Body>
-
+</div>
 <Layout>
   

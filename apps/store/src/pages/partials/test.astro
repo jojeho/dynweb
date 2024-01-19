@@ -1,0 +1,59 @@
+---
+ //import Card from "../../components/Card.astro"
+ import "../../index.css"
+ const docs = await Astro.glob("../../components/nav/b*.astro");
+ console.log(docs)
+
+ const myMenuBar = {
+    items: [
+        {
+            label: "홈",
+            link: "#home",
+        },
+        {
+            label: "제품",
+            link: "menu",
+            submenu: [
+                { label: "전자제품", link: "#traditional" },
+                { label: "가전제품", link: "#steamed" },
+                { label: "컴퓨터", link: "#fried" },
+            ],
+        },
+        
+        {
+            label: "매장 안내",
+            link: "store",
+        },
+        {
+            label: "문의",
+            link: "board",
+        },
+    ],
+};
+
+
+// const theme = {
+//   primaryColor: "#5C3C11",
+//   secondaryColor: "#A33D21",
+//   primaryFont: "Georgia, serif",
+//   radius: "5px",
+// };
+
+
+ const theme = {
+  primaryColor:'red.300',
+  secondaryColor: "#FFD700",  // Gold
+  primaryFont: "Georgia, serif",
+  radius: "30px",
+    
+};
+
+---
+
+
+ {docs.map((item)=>(
+    <div>
+    <item.default myMenuBar={myMenuBar} theme={theme} change={1}></item.default>
+   </div>
+ ))}
+ 

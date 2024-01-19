@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model page {
+  id            Int       @id @default(autoincrement())
+  tag String
+  header String
+  sections section[]
+  // 추가적인 필드가 있다면 여기에 계속 추가하세요.
+}
+
+model section {
+  id            Int       @id @default(autoincrement())
+  tag String
+  pageId Int
+  header String
+  page page   @relation(fields: [pageId], references: [id])
+  containers container[]
+  // 추가적인 필드가 있다면 여기에 계속 추가하세요.
+}
+
+model container {
+  id            Int       @id @default(autoincrement())
+  tag String
+  sectionId Int
+  header String
+  section section @relation(fields: [sectionId], references: [id])
+  html html[] 
+  css css[] 
+  examples example[]
+  // 추가적인 필드가 있다면 여기에 계속 추가하세요.
+}
+
+model html {
+  id            Int       @id @default(autoincrement())
+  containerId Int  
+  code String
+  container container @relation(fields: [containerId], references: [id])
+  // 추가적인 필드가 있다면 여기에 계속 추가하세요.
+}
+
+model css {
+  id            Int       @id @default(autoincrement())
+  containerId Int   
+  code String
+  tag String
+  container container @relation(fields: [containerId], references: [id])
+  // 추가적인 필드가 있다면 여기에 계속 추가하세요.
+}
+
+model example {
+  id            Int       @id @default(autoincrement())
+  containerId Int   
+  property String
+  container container @relation(fields: [containerId], references: [id])
+  // 추가적인 필드가 있다면 여기에 계속 추가하세요.
+}

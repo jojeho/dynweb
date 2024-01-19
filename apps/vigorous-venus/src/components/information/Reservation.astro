@@ -1,0 +1,86 @@
+---
+import {css} from "../../../styled-system/css"
+
+interface ReservationTime {
+    category: string;
+    weekday: string;
+    weekendHoliday: string;
+}
+
+interface ReservationSchedule {
+    lunch: ReservationTime;
+    dinner: ReservationTime;
+}
+
+const schedule: ReservationSchedule = {
+    lunch: {
+        category: "점심",
+        weekday: "11:30 ~ 11:40",
+        weekendHoliday: "예약불가",
+    },
+    dinner: {
+        category: "저녁",
+        weekday: "17:00 ~ 19:30",
+        weekendHoliday: "예약불가",
+    },
+};
+
+const boxCssStyle = {
+    border: '1px solid #ddd',
+    padding: '10px',
+    borderRadius: '8px',
+    margin: '10px',
+    backgroundColor: '#f4f4f4',
+};
+
+const tableCssStyle = {
+    width: '100%',
+    borderCollapse: 'collapse',
+    marginTop: '10px',
+};
+
+const thStyle = {
+    borderBottom: '2px solid #333',
+    padding: '10px',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    color: '#333',
+};
+
+const tdStyle = {
+    borderBottom: '1px solid #ddd',
+    padding: '10px',
+    textAlign: 'center',
+    color: '#333',
+};
+
+---
+<section>
+<p class={css({fontSize:"lg"})}>예약안내</p>
+<table class={css(tableCssStyle)}>
+    <colgroup>
+        <col width="20%" />
+        <col width="40%" />
+        <col width="40%" />
+    </colgroup>
+    <thead>
+        <tr>
+            <th class={css(thStyle)}>구분</th>
+            <th class={css(thStyle)}>평일</th>
+            <th class={css(thStyle)}>주말/일요일/공휴일</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td class={css(tdStyle)}>{schedule.lunch.category}</td>
+            <td class={css(tdStyle)}>{schedule.lunch.weekday}</td>
+            <td class={css(tdStyle)} rowspan={2}>{schedule.lunch.weekendHoliday}</td>
+        </tr>
+        <tr>
+            <td class={css(tdStyle)}>{schedule.dinner.category}</td>
+            <td class={css(tdStyle)}>{schedule.dinner.weekday}</td>
+        </tr>
+    </tbody>
+</table>
+</section>
+

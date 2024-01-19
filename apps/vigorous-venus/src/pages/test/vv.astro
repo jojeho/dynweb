@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>만두 게시물</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<section>
+
+<div id="content" class="article-container">
+  <h1 class="article-title">aaa</h1>
+  <p class="article-meta">vvv | 작성일: cc</p>
+  <p class="article-content">
+   vvvvvvvvvvvvvvvvvsssssssss
+  </p>
+  <p class="article-views">조회수: mmm</p>
+  <a href="#" class="article-link">aasfaf</a>
+</div>
+
+
+</section>
+
+
+
+</body>
+
+<style>
+/* 전체 페이지 스타일 */
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* 게시물 컨테이너 스타일 */
+.article-container {
+  max-width: 800px;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  transition: transform 1s ease-in-out; 
+  animation:  moveRandom 1s ease-in-out 1s forwards;
+}
+
+.article-container:hover {
+  transform: scale(1.02);
+}
+
+/* 제목 스타일 */
+.article-title {
+  font-size: 32px;
+  font-weight: bold;
+  color: #3498db;
+  margin-bottom: 10px;
+}
+
+/* 작성자 및 날짜 스타일 */
+.article-meta {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+/* 내용 스타일 */
+.article-content {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* 조회수 스타일 */
+.article-views {
+  font-size: 14px;
+  color: #888;
+}
+
+/* 링크 스타일 */
+.article-link {
+  color: #e74c3c;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease-in-out;
+}
+
+.article-link:hover {
+  color: #c0392b;
+}
+
+/* 버튼 스타일 */
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+  background-color: #27ae60;
+}
+
+
+@keyframes moveRandom {
+  0% {
+    right: 0;
+    transform:  translateX(-50vw);
+  }
+  /* 25% {
+    transform:  translateX(50vw);
+  } */
+
+  /* 75% {
+    transform:  translateX(50vw);
+  } */
+  100% {
+    /* right: 50%; */
+    /* transform: translateX(-50%); */
+  }
+}
+</style>
+</html>

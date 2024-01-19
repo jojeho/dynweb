@@ -57,15 +57,15 @@ const contactInfo: ContactInfo = {
     <tbody>
         <tr>
             <td>전화번호</td>
-            <td>${contactInfo.phoneNumber}</td>
+            <td>{contactInfo.phoneNumber}</td>
         </tr>
         <tr>
             <td>콜센터</td>
-            <td>${contactInfo.callCenter.join(', ')}</td>
+            <td>{contactInfo.callCenter.join(', ')}</td>
         </tr>
         <tr>
             <td>예약가능시간</td>
-            <td>평일 ${contactInfo.reservationAvailability.weekday} / 토요일 ${contactInfo.reservationAvailability.weekend}</td>
+            <td>평일 {contactInfo.reservationAvailability.weekday} / 토요일 {contactInfo.reservationAvailability.weekend}</td>
         </tr>
     </tbody>
 </table>

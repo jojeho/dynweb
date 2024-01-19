@@ -1,0 +1,74 @@
+---
+export const partial = true;
+const websiteSections = {
+  "인사말": ["card"],
+  "연혁": ["card"],
+  "스토리": ["card"],
+  "철학": ["card"],
+  "제품": ["product"],
+  "영업시간": ["grid"],
+  "예약정보": ["grid"],
+  "위치": [], // 위치 정보가 없는 경우 빈 배열로 표현
+  "상담시간": ["grid"]
+};
+
+interface Image{
+    url:string,
+    art?:string
+}
+
+interface Card {
+  title?: string;
+  subtitle?: string;
+  content: string;
+  image?: Image;
+  
+}
+
+interface Product{
+  modelName:string,
+  modelNo:string,
+  price:string,
+  detail?:string,
+  image?:Image     
+  sale?:string;
+}
+
+interface Grid
+{
+    header?:string[],
+    cols:string[],
+    rows?:string[],
+    contents:string[]
+}
+
+const containers=['card' ,'image','product','grid','image']
+const types=['list','carousel','grid','tab']
+
+---
+
+<select name="container">
+    <option>Container 선택</optin>
+    {   
+
+        containers.map((item) => (
+            <option value={item}>{item}</option>
+        ))
+    }
+</select>
+
+<select name="containerType" >
+    <option>Container 선택</optin>
+    {
+
+        types.map((item) => (
+            <option value={item}>{item}</option>
+        ))
+    }
+
+  
+</select>
+
+<input ></input>
+
+<button>Submit</button>

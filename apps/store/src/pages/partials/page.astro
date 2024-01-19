@@ -1,0 +1,30 @@
+---
+import * as data from "../../types";
+export const partial = true;
+const cat = Astro.url.searchParams.get("industory");
+const caption="세부 업종선택"
+const caption2="페이지 종류 선택"
+const items = data.industries[cat];
+const find = items  == undefined ? false :true;
+
+---
+
+{ find &&
+(<select name='industoryDetail'>
+    <option>{caption}</option>
+    {items?.map((item) => <option value={item}>{item}</option>)}
+</select>
+
+<select
+    hx-trigger="change"
+    hx-get="/partials/section/"
+    hx-target="#section"
+    name="pageCategory"
+>
+    <option>{caption2}</option>
+    {data.pageCategory.map((item) => <option value={item}>{item}</option>)}
+</select>
+
+<div id="section"></div>
+)}
+

@@ -1,6 +1,7 @@
 ---
 import View from "../../components/board/view.astro"
 export const partial = true;
+const id=Astro.url.searchParams.get("id")
 ---
 
-<View />
+<View id={id}/>

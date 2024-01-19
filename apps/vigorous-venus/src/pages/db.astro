@@ -1,0 +1,49 @@
+---
+interface Page {
+    id: number;
+    tag: string;
+    header: string;
+    // 추가적인 필드가 있으면 여기에 계속 추가하세요.
+  }
+
+  interface Section {
+  id: number;
+  tag: string;
+  pageId: number;
+  header: string;
+  // 추가적인 필드가 있으면 여기에 계속 추가하세요.
+}
+
+interface Container {
+  id: number;
+  tag: string;
+  sectionId: number;
+  header: string;
+  // 추가적인 필드가 있으면 여기에 계속 추가하세요.
+}
+
+
+interface HTML {
+  containerId: number;
+  code: string;
+  // 추가적인 필드가 있으면 여기에 계속 추가하세요.
+}
+
+interface CSS {
+  containerId: number;
+  code: string;
+  tag: string;
+  // 추가적인 필드가 있으면 여기에 계속 추가하세요.
+}
+
+
+interface Example {
+  containerId: number;
+  property: string;
+  // 추가적인 필드가 있으면 여기에 계속 추가하세요.
+}
+
+
+
+
+  ---

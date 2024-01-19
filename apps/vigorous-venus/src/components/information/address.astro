@@ -1,4 +1,6 @@
 ---
+import { css } from "../../../styled-system/css";
+
 interface Address {
   doRoad: string;
   doJibun: string;
@@ -22,51 +24,35 @@ const addressInfo: LocationInfo = {
     phoneNumber: "(02) 733-9240",
   },
 };
+
+
+const defaultStyle = {
+    border: "1px solid #ddd",
+    padding: "10px",
+    borderRadius: "8px",
+    margin: "10px",
+};
+
+// 주소 스타일
+const addressStyle = {
+    fontWeight: "bold",
+    color: "#337ab7", // Deep Blue
+};
+
+// 전화번호 스타일
+const phoneStyle = {
+    color: "#5cb85c", // Green
+    marginTop: "5px",
+};
 ---
 
-<p>주소:</p>
-<div class="address-container">
-    <p>(도로명){addressInfo.address.doRoad}</p>
-    <p>(지번){addressInfo.address.doJibun}</p>
+<div class={css(defaultStyle )}>
+  <p>주소</p>
+  <div class={css(addressStyle)}>
+      <p>{addressInfo.address.doRoad}</p>
+      <p>{addressInfo.address.doJibun}</p>
+  </div>
+  <div class={css(phoneStyle)}>
+      <p>{addressInfo.phone.phoneNumber}</p>
+  </div>
 </div>
-
-<div class="phone-container">
-    <p>전화번호:</p>
-    <p>{addressInfo.phone.phoneNumber}</p>
-</div>
-
-<style>
-   
-    .address-container, .phone-container {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin-bottom: 20px;
-    }
-
-    p {
-        margin: 0;
-    }
-
-    .hours-container {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        h2 {
-            margin-top: 0;
-        }
-
-        ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            margin-bottom: 5px;
-        }
-
-        .weekday-hours {
-            margin-bottom: 10px;
-        }
-</style>

@@ -6,7 +6,7 @@ i18n: {
     defaultLocale: "ko",
     locales: ["en", "es", "pt-br","ko"]
   },
- integrations: [htmx()],
+  integrations: [htmx()],
  output: "server"
 })
 

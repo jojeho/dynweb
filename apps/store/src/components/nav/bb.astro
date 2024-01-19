@@ -1,0 +1,168 @@
+---
+import "../../index.css";
+import {css} from "../../../styled-system/css"
+
+interface Theme {
+  primaryColor: string;
+  secondaryColor: string;
+  primaryFont: string;
+  radius: string;
+  
+}
+
+const theme2: Theme = {
+  primaryColor: "#A33D21",
+  secondaryColor: "#A33D21",
+  primaryFont: "Georgia, serif",
+  radius: "5px",
+};
+
+const theme3: Theme = {
+  primaryColor: "red.100",
+  secondaryColor: "#A33D21",
+  primaryFont: "Georgia, serif",
+  radius: "5px",
+};
+
+
+
+interface MenuItem {
+    label: string;
+    link: string;
+    submenu?: MenuItem[]; // Add submenu property
+}
+
+interface MenuBar {
+    items: MenuItem[];
+}
+
+interface Props{
+    myMenuBar:MenuBar;
+    theme:Theme;
+    change:number;
+}
+
+const { myMenuBar , theme ,change}:{myMenuBar:MenuBar,theme:Theme,change:number} = Astro.props
+
+console.log(theme)
+console.log(myMenuBar)
+
+const myMenuBar2 = {
+    items: [
+        {
+            label: "홈",
+            link: "#home",
+        },
+        {
+            label: "메뉴",
+            link: "menu",
+            submenu: [
+                { label: "전통 만두", link: "#traditional" },
+                { label: "찐만두", link: "#steamed" },
+                { label: "튀긴만두", link: "#fried" },
+            ],
+        },
+        
+        {
+            label: "매장 안내",
+            link: "store",
+        },
+        {
+            label: "문의",
+            link: "board",
+        },
+    ],
+};
+
+
+const navStyles = {
+    backgroundColor:  theme2.primaryColor,
+    padding: "15px", // Increased padding for main text
+    color: theme.primaryColor, // Brown text color
+    fontFamily: theme.primaryFont,
+    borderRadius: "8px", // Slightly rounded corners
+    fontWeight: "bold", // Bolder main text
+    display: 'flex',
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Subtle box shadow
+};
+
+const menuStyles = {
+    position: 'relative',
+    
+    marginRight: "20px",
+    marginBottom: "10px", // Adjusted margin for better spacing
+    transition: "transform 0.3s ease-in-out", // Add a subtle animation
+    "&:hover": {
+        transform: "scale(1.1)", // Scale up on hover
+    },
+};
+
+const submenuStyles = {
+    display:'none',
+    whiteSpace: 'nowrap',
+    position: "absolute",
+    backgroundColor: "#F4CDB4", // Light peach background
+    color: theme.primaryColor, // Brown text color
+    textDecoration: "none",
+    padding: '12px',
+    borderRadius: theme.radious,
+    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)", // Subtle box shadow
+    transition: "transform 0.3s ease-in-out", // Add a subtle animation
+
+    "& a": {
+        textDecoration: "none",
+        color: theme.secondaryColor, // Darker brown text color
+        "&:hover": {
+            color: '#663300', // Dark brown on hover
+        }
+    }
+};
+
+// export { navStyles, menuStyles, submenuStyles };
+
+// const color= theme.primaryColor;
+// const color='red';
+const color='red';
+---
+<div class="mmm">bbbb</div>
+<nav class={css(navStyles)}>
+    <!-- <ul  class={css(ulStyles)}> -->
+        {
+            myMenuBar.items.map((item) => (
+                <div id="menu" class={css(menuStyles)}>
+                    <a href={item.link} >{item.label}</a>
+                    {item.submenu && (
+                        <ul class={css(submenuStyles)}  >
+                            {item.submenu.map((subitem) => (
+                                <li >
+                                   <a  href={subitem.link}>{subitem.label}</a>
+                                </li>
+                            ))}
+                        </ul>       
+                    )}
+                </div>
+            ))
+        }
+    <!-- </ul> -->
+</nav>
+
+
+<script>
+    // JavaScript를 사용하여 서브메뉴를 토글할 수 있습니다.
+    document.querySelectorAll("#menu").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+            item.querySelector("ul").style.display = "block";
+        });
+
+        item.addEventListener("mouseleave", () => {
+            item.querySelector("ul").style.display = "none";
+        });
+    });
+</script>
+
+<style define:vars{{color}} >
+    .mmm {
+        background-color:red;
+        /* background-color: red; */
+    }
+</style>
