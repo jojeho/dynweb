@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간단한 채팅</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    #chat-container {
+      width: 300px;
+      margin: 20px auto;
+      border: 1px solid #ccc;
+      padding: 10px;
+      height: 400px;
+      overflow-y: scroll;
+    }
+
+    #input-container {
+      margin-top: 10px;
+    }
+
+    #message-input {
+      width: 200px;
+      padding: 5px;
+    }
+
+    #send-button {
+      padding: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div id="chat-container"></div>
+  <div id="input-container">
+    <input type="text" id="message-input" placeholder="메시지 입력">
+    <button id="send-button" onclick="sendMessage()">전송</button>
+  </div>
+
+  <script>
+    function sendMessage() {
+      var messageInput = document.getElementById("message-input");
+      var message = messageInput.value;
+
+      if (message.trim() !== "") {
+        var chatContainer = document.getElementById("chat-container");
+        var newMessage = document.createElement("p");
+        newMessage.textContent = "You: " + message;
+        chatContainer.appendChild(newMessage);
+
+        // 여기에 챗봇 응답 로직을 추가할 수 있습니다.
+
+        // 메시지 입력창 비우기
+        messageInput.value = "";
+
+        // 스크롤을 가장 아래로 이동
+        chatContainer.scrollTop = chatContainer.scrollHeight;
+      }
+    }
+  </script>
+</body>
+</html>

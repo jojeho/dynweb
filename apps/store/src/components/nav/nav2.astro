@@ -1,0 +1,194 @@
+---
+import "../../index.css";
+import { css } from "../../../styled-system/css";
+
+
+interface MenuItem {
+    label: string;
+    link: string;
+    submenu?: MenuItem[]; // Add submenu property
+}
+
+interface MenuBar {
+    items: MenuItem[];
+}
+
+interface Props {
+    myMenuBar: MenuBar;
+    // theme:Theme;
+
+    primaryColor: string;
+}
+
+const { myMenuBar, primaryColor } = Astro.props;
+
+const myMenuBar2 = {
+    items: [
+        {
+            label: "홈",
+            link: "#home",
+        },
+        {
+            label: "메뉴",
+            link: "menu",
+            submenu: [
+                { label: "전통 만두", link: "#traditional" },
+                { label: "찐만두", link: "#steamed" },
+                { label: "튀긴만두", link: "#fried" },
+            ],
+        },
+
+        {
+            label: "매장 안내",
+            link: "store",
+        },
+        {
+            label: "문의",
+            link: "board",
+        },
+    ],
+};
+
+// export { navStyles, menuStyles, submenuStyles };
+
+// const color= theme.primaryColor;
+// const color='red';
+const color = "red";
+
+interface Theme {
+    backgroundColor: string;
+    foregroundColor: string;
+    fontFamily: string;
+    fontSize:string;
+    fontWeight:string;
+    borderRadius:string;
+}
+
+const theme2: Theme = {
+    backgroundColor: "#FF6F61",  
+    foregroundColor: "#FFFFFF",  
+    fontFamily:  'Montserrat, sans-serif',
+    fontSize:'16px',
+    fontWeight:'500',
+    borderRadius:'8px',
+
+};
+
+const theme3: Theme = {
+  backgroundColor: "#3498db", // 쿨 블루
+  foregroundColor: "#ecf0f1", // 화이트 클라우드
+  fontFamily: 'Roboto, sans-serif',
+  fontSize: '18px',
+  fontWeight:'500',
+  borderRadius: '10px'
+};
+
+// 테마 객체 생성
+const theme: Theme = {
+  backgroundColor: "#6A0572", // 푸시아 핑크
+  foregroundColor: "#FFFFFF", // 화이트
+  fontFamily: 'Inter, sans-serif',
+  fontSize: '16px',
+  fontWeight: '500',
+  borderRadius: '10px'
+};
+
+
+
+---
+
+<nav class="navStyles">
+    <!-- <ul  class="ulSty"> -->
+    {
+        myMenuBar.items.map((item) => (
+            <div id="menu" class="menuStyles">
+                <a href={item.link}>{item.label}</a>
+                {item.submenu && (
+                    <ul class="submenuStyles">
+                        {item.submenu.map((subitem) => (
+                            <li>
+                                <a href={subitem.link}>{subitem.label}</a>
+                            </li>
+                        ))}
+                    </ul>
+                )}
+            </div>
+        ))
+    }
+    <!-- </ul> -->
+</nav>
+
+<script>
+    // JavaScript를 사용하여 서브메뉴를 토글할 수 있습니다.
+    document.querySelectorAll("#menu").forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+            item.querySelector("ul").style.display = "block";
+        });
+
+        item.addEventListener("mouseleave", () => {
+            item.querySelector("ul").style.display = "none";
+        });
+    });
+</script>
+
+<style define:vars={{
+    backgroundColor:theme.backgroundColor ,
+    foregroundColor: theme.foregroundColor,
+    fontFamily: theme.fontFamily,
+    fontSize: theme.fontSize,
+    borderRadius:theme.borderRadius,
+    fontWeight:theme.fontWeight
+}}>
+    /* navStyles */
+/* navStyles */
+.navStyles {
+
+    display: flex;
+    padding: 15px;
+
+
+    font-family: var(--fontFamily);
+    font-weight: var(--fontWeight);
+    font-size: var(--fontSize);
+
+
+    background-color: var(--backgroundColor);
+    color: var(--foregroundColor);
+
+    /* Border     */
+    border-radius: var(--borderRadius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+    
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* menuStyles */
+.menuStyles {
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 10px;
+
+    transition: transform 0.3s ease-in-out;
+}
+
+
+/* submenuStyles */
+.submenuStyles {
+    display: none;
+    white-space: nowrap;
+    position: absolute;
+    padding: 12px;
+
+    background-color: var(--backgroundColor);
+    color: var(--foregroundColor);
+            
+    border-radius:var(--borderRadius); /* 추가된 부분 */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+
+
+</style>

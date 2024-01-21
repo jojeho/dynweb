@@ -84,6 +84,9 @@ importers:
       htmx.org:
         specifier: ^1.9.10
         version: 1.9.10
+      openai:
+        specifier: ^4.24.7
+        version: 4.24.7
       typescript:
         specifier: ^5.3.3
         version: 5.3.3

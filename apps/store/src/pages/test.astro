@@ -1,0 +1,31 @@
+<script>
+  let isMenuOpen = false;
+
+  const menuItems = [
+    { text: 'Home', link: '#' },
+    { text: 'About', link: '#' },
+    { text: 'Services', link: '#' },
+    { text: 'Portfolio', link: '#' },
+    { text: 'Contact', link: '#' }
+  ];
+
+  function toggleMenu() {
+    isMenuOpen = !isMenuOpen;
+  }
+</script>
+
+<nav class="navbar">
+  <div class="container">
+    <div class="logo">My Website</div>
+    <button on:click={toggleMenu} class="menu-toggle">Menu</button>
+    <ul class="menu" class:open={isMenuOpen}>
+      {#each menuItems as item (item.text)}
+        <li><a href={item.link}>{item.text}</a></li>
+      {/each}
+    </ul>
+  </div>
+</nav>
+
+<style>
+  /* Add your CSS styles for the menu bar here */
+</style>

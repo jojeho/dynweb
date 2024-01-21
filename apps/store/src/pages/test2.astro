@@ -1,0 +1,21 @@
+---
+
+const menuItems = [
+    { text: 'Home', link: '/' },
+    { text: 'About', link: '/about' },
+    { text: 'Services', link: '/services' },
+    { text: 'Portfolio', link: '/portfolio' },
+    { text: 'Contact', link: '/contact' }
+];
+---
+
+<nav class="navbar">
+    <div class="container">
+        <div class="logo"></div>
+        <ul class="menu">
+            { menuItems.map((item)=>(
+                <li><a href={item.link} class:list="{{ isHome ? 'home' : '' }}">{item.text }</a></li>))
+            }
+        </ul>
+    </div>
+</nav>

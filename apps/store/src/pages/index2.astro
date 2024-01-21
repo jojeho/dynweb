@@ -1,0 +1,186 @@
+---
+import "../index.css"
+import Layout from "../layouts/Layout.astro";
+import * as db from "../data/page";
+import { PrismaClient } from "@prisma/client";
+import AA from "./aa.astro"
+
+if (Astro.request.method === "POST") {
+	try{
+	const data = await Astro.request.formData();
+		const p={
+		industory : data.get('industory'),
+		industoryDetial :data.get('industoryDetail'),
+		pageCatorgy: data.get('pageCategory'),
+		section : data.get('section'),
+		container:data.get('container'),
+		containerType:data.get('containerType'),
+		}
+		// console.log(p)
+	}catch(error)
+	{
+
+	}
+	
+	
+    
+	// await db.insertFormData(data);
+}
+
+const html="<div>hello<div>"
+await db.deletAll();
+// const all = await db.selectAll();
+// console.log(all);
+
+// const p1:db.Page={
+// 	header:'',
+// 	tag:'소개',
+// }
+
+// const prisma = new PrismaClient()
+// const d = await prisma.page.create({
+// 	data:{
+// 		header:p1.header,
+// 		tag:p1.tag
+// 	}})
+
+//  console.log('created' , d)
+
+import * as data from "../types";
+import BB from "../components/nav/nav2.astro"
+
+const myMenuBar = {
+    items: [
+        {
+            label: "홈",
+            link: "#home",
+        },
+        {
+            label: "제품",
+            link: "menu",
+            submenu: [
+                { label: "전자제품", link: "#traditional" },
+                { label: "가전제품", link: "#steamed" },
+                { label: "컴퓨터", link: "#fried" },
+            ],
+        },
+        
+        {
+            label: "매장 안내",
+            link: "store",
+        },
+        {
+            label: "문의",
+            link: "board",
+        },
+    ],
+};
+
+
+// const theme = {
+//   primaryColor: "#5C3C11",
+//   secondaryColor: "#A33D21",
+//   primaryFont: "Georgia, serif",
+//   radius: "5px",
+// };
+
+
+ const theme = {
+  primaryColor:'red.500',
+  secondaryColor: "#FFD700",  // Gold
+  primaryFont: "Georgia, serif",
+  radius: "30px",
+  fontSize:'100px'
+};
+
+const primaryColor='blue'
+const htmlString="<div >hello<div> <style is:line> div { color:blue}</style> <script>alert('a')</script>"
+---
+
+<Layout title="Welcome to Astro.">
+	<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --swiper-theme-color: #007aff;
+            --swiper-navigation-size: 44px;
+        }
+
+        body {
+            line-height: 1;
+            -webkit-text-size-adjust: none;
+            font-family: 'SamsungOneKorean', Dotum, '돋움', sans-serif;
+            word-break: keep-all;
+            box-sizing: border-box;
+            padding: 0;
+            color: #000;
+            text-decoration: none;
+            background: transparent;
+            font-size: 1.4545vw;
+        }
+
+        .co69-trending-now__card-list {
+            flex-shrink: 0;
+            position: relative;
+            transition-property: transform;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: column;
+            -webkit-box-pack: justify;
+            height: auto;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            overflow: hidden;
+            width: 19.44444444vw;
+            margin: 0vw .83333333vw 0vw .83333333vw;
+            border-radius: 1.38888889vw;
+        }
+
+        .co69-trending-now__card-image {
+            /* Add styles for card image container */
+        }
+
+        .image {
+            /* Add styles for image container */
+        }
+
+        .co69-trending-now__card-title {
+            /* Add styles for card title */
+        }
+
+        .co69-trending-now__card-cta {
+            /* Add styles for card call-to-action */
+        }
+
+        /* Add more styles as needed */
+
+    </style>
+</head>
+<body>
+
+<a class="co69-trending-now__card-list swiper-slide swiper-slide-next" data-omni="galaxy s24 plus buying page" href="https://www.samsung.com/sec/galaxy-s24/preorder/?sku=SM-S926NLGEKOO" role="listitem" an-tr="co69_trending now-home-cta-button" an-ca="home content click" an-ac="trending now" an-la="trending now:buy now" aria-hidden="false" tabindex="0" data-di-id="di-id-b207e71d-a5768f06">
+    <div class="co69-trending-now__card-image">
+        <div class="image image--main-loaded">
+            <img class="image__preview responsive-img image--loaded image--hide" data-desktop-src="https://images.samsung.com/kdp/editor/common/202401/07ed1eb3-d79c-49c5-8151-0eb4c395e80f.jpg" data-mobile-src="https://images.samsung.com/kdp/editor/common/202401/e7900d7d-1155-4b9f-b594-8dfae7971cbe.jpg" data-comp-name="image" alt="제이드 그린, 사파이어 블루, 샌드스톤 오렌지 제품에 끼워진 갤럭시 S24+ 케이스들" src="https://images.samsung.com/kdp/editor/common/202401/07ed1eb3-d79c-49c5-8151-0eb4c395e80f.jpg" aria-hidden="true">
+            <img class="image__main responsive-img image--loaded" data-desktop-src="https://images.samsung.com/kdp/editor/common/202401/07ed1eb3-d79c-49c5-8151-0eb4c395e80f.jpg" data-mobile-src="https://images.samsung.com/kdp/editor/common/202401/e7900d7d-1155-4b9f-b594-8dfae7971cbe.jpg" data-comp-name="image" alt="제이드 그린, 사파이어 블루, 샌드스톤 오렌지 제품에 끼워진 갤럭시 S24+ 케이스들" src="https://images.samsung.com/kdp/editor/common/202401/07ed1eb3-d79c-49c5-8151-0eb4c395e80f.jpg" style="">
+        </div>
+    </div>
+    <div class="co69-trending-now__card-title co69-trending-now__card-title">
+        <p>갤럭시 S24+ 삼성닷컴/삼성 강남 전용컬러</p>
+    </div>
+    <div class="co69-trending-now__card-cta">
+        <span class="cta cta--contained cta--black" data-omni="galaxy s24 plus buying page_buy now">구매하기</span>
+    </div>
+</a>
+
+</body>
+</html>
+
+
+  
+</Layout>
+
+ 

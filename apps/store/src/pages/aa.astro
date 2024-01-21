@@ -1,0 +1,19 @@
+---
+interface props{
+    htmlString:string;
+}
+const {htmlString }=Astro.props
+
+
+// const htmlString2="<div class='aa'>hello<div> <style is:line> div { color:blue}</style> <script>alert('a')</script>"
+        
+---
+
+
+<!-- <Fragment set:html={htmlString} /> -->
+<div>my world</div>
+<style >
+    div {color:red}
+
+</style>
+<!-- <Fragment set:html={htmlString2} /> -->

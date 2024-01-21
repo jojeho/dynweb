@@ -1,0 +1,58 @@
+// TypeScript 인터페이스로 박스 모델 테마 정의
+interface ResponsiveBoxModelTheme {
+  margin: string;
+  padding: string;
+  width: string;
+  height: string;
+  left?: string;
+  right?: string;
+}
+
+// 모바일용 스타일
+const mobileStyle: ResponsiveBoxModelTheme = {
+  margin: '10px',
+  padding: '10px',
+  width: '100%', // 모바일은 가득 차게
+  height: '200px',
+};
+
+// 태블릿용 스타일
+const tabletStyle: ResponsiveBoxModelTheme = {
+  margin: '15px',
+  padding: '15px',
+  width: '70%', // 태블릿은 70% 차게
+  height: '250px',
+};
+
+// 데스크탑용 스타일
+const desktopStyle: ResponsiveBoxModelTheme = {
+  margin: '20px',
+  padding: '20px',
+  width: '50%', // 데스크탑은 50% 차게
+  height: '300px',
+};
+
+// 미디어 쿼리를 통한 적용
+// 모바일 화면 크기 이하일 때
+@media only screen and (max-width: 767px) {
+  // 모바일용 스타일 적용
+  .box {
+    ...mobileStyle;
+  }
+}
+
+// 태블릿 화면 크기 이하일 때
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+  // 태블릿용 스타일 적용
+  .box {
+    ...tabletStyle;
+  }
+}
+
+// 데스크탑 화면 크기 이상일 때
+@media only screen and (min-width: 1024px) {
+  // 데스크탑용 스타일 적용
+  .box {
+    ...desktopStyle;
+  }
+}

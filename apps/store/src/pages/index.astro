@@ -1,137 +1,62 @@
 ---
-import "../index.css"
 import Layout from "../layouts/Layout.astro";
-import * as db from "../data/page";
-import { PrismaClient } from "@prisma/client";
-
-if (Astro.request.method === "POST") {
-	try{
-	const data = await Astro.request.formData();
-		const p={
-		industory : data.get('industory'),
-		industoryDetial :data.get('industoryDetail'),
-		pageCatorgy: data.get('pageCategory'),
-		section : data.get('section'),
-		container:data.get('container'),
-		containerType:data.get('containerType'),
-		}
-		// console.log(p)
-	}catch(error)
-	{
-
-	}
-	
-	
-    
-	// await db.insertFormData(data);
-}
-
-const html="<div>hello<div>"
-await db.deletAll();
-// const all = await db.selectAll();
-// console.log(all);
-
-// const p1:db.Page={
-// 	header:'',
-// 	tag:'소개',
-// }
-
-// const prisma = new PrismaClient()
-// const d = await prisma.page.create({
-// 	data:{
-// 		header:p1.header,
-// 		tag:p1.tag
-// 	}})
-
-//  console.log('created' , d)
-
 import * as data from "../types";
-import BB from "../components/nav/bb.astro"
-
-const myMenuBar = {
-    items: [
-        {
-            label: "홈",
-            link: "#home",
-        },
-        {
-            label: "제품",
-            link: "menu",
-            submenu: [
-                { label: "전자제품", link: "#traditional" },
-                { label: "가전제품", link: "#steamed" },
-                { label: "컴퓨터", link: "#fried" },
-            ],
-        },
-        
-        {
-            label: "매장 안내",
-            link: "store",
-        },
-        {
-            label: "문의",
-            link: "board",
-        },
-    ],
-};
-
-
-// const theme = {
-//   primaryColor: "#5C3C11",
-//   secondaryColor: "#A33D21",
-//   primaryFont: "Georgia, serif",
-//   radius: "5px",
-// };
-
-
- const theme = {
-  primaryColor:'red.500',
-  secondaryColor: "#FFD700",  // Gold
-  primaryFont: "Georgia, serif",
-  radius: "30px",
-  fontSize:'100px'
-};
-
-
-
 ---
 
-<Layout title="Welcome to Astro.">
-	<BB  myMenuBar={myMenuBar}  theme={theme}/>
-	<form method="POST">
-		<select hx-trigger="change" hx-get="/partials/page" 
-			hx-target="#detail"
-			name="industory">
-			 <option>업종선택</option>
-			{
-				data.industryKeys.map((item) => (
-					<option value={item}>{item}</option>
-				))
-			}
-		</select>
-		
-       <div id="detail"></div>
-	   
-	   
-	   
-	</form>
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+    </head>
+    
 
-	<div id="mainGrid"></div>
+<Layout>
+ <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
 
-	<div>
-		<button hx-trigger="click" hx-get="/partials/test"
-			hx-target="#mainGrid">click</button>
-	</div>
+    #chat-container {
+        width: 80%;
+        height:80%;
+        margin: 20px auto;
+        border: 1px solid #ccc;
+        padding: 10px;
+        height: 400px;
+        overflow-y: scroll;
+    }
 
-	<script>
-		var html="<div>hello</div>"
-		var encoded = html;
-		var div = document.createElement('div');
-		div.innerHTML = encoded;
-		var decoded = div.firstChild.nodeValue;
-		var g =document.querySelector('#mainGrid')
-		g.append(decoded);
-	 </script>
+    #input-container {
+        margin-top: 10px;
+    
+    }
+
+    #message-input {
+        width: 200px;
+        padding: 5px;
+    }
+
+
+    </style> 
+    <div id="chat-container"></div>
+      <div  id="input-container" >
+        <!-- <input type="text" name="q" placeholder="메시지 입력"> -->
+        <input id="input" 
+            type="text"
+            hx-get="/partials/ai"
+            hx-target="#chat-container"
+            hx-trigger="keyup[keyCode==13]"
+            name="q"
+        </>
+      </div>
+    
+      <script>
+        // 페이지 로드 후 input 요소에 포커스 주기
+        window.onload = function() {
+            document.getElementById('input').focus();
+        };
+    </script>
+        
+    
 </Layout>
-
- 

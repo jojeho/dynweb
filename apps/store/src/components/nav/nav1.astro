@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        :root {
+            --background-color: #ecf0f1;
+            --foreground-color: #2ecc71;
+            --font-size: 16px;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .menubar {
+            background-color: var(--background-color);
+            display: flex;
+            padding: 10px;
+        }
+
+        .menu-item {
+            margin: 0 10px;
+            cursor: pointer;
+            font-size: var(--font-size);
+            color: var(--foreground-color);
+        }
+
+        .submenu {
+            position: relative;
+        }
+
+        .submenu .submenu-item {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--background-color);
+            border: 1px solid var(--foreground-color);
+        }
+
+        .submenu:hover .submenu-item {
+            display: block;
+        }
+
+        .submenu-item {
+            padding: 10px;
+            white-space: nowrap;
+            color: var(--foreground-color);
+            cursor: pointer;
+        }
+
+        .submenu-item:hover {
+            background-color: var(--foreground-color);
+            color: var(--background-color);
+        }
+    </style>
+    <title>Submenubar Example</title>
+</head>
+<body>
+    <div class="menubar">
+        <div class="menu-item">Home</div>
+        <div class="menu-item">About</div>
+        <div class="menu-item submenu">
+            Services
+            <div class="submenu">
+                <div class="submenu-item">Web Design</div>
+                <div class="submenu-item">Graphic Design</div>
+                <div class="submenu-item">Programming</div>
+            </div>
+        </div>
+        <div class="menu-item">Contact</div>
+    </div>
+</body>
+</html>

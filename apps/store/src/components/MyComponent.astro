@@ -1,0 +1,25 @@
+---
+const { my: className,  change ,...rest  } = Astro.props;
+console.log(change)
+---
+<div class={className} ,{...rest}>
+ <div >
+    bb
+ </div>
+<div >
+   aaa
+</div>
+</div>
+
+
+---
+<!-- If `isRed` is truthy, class will be "box red". -->
+<!-- If `isRed` is falsy, class will be "box". -->
+<div class:list={['box', 'text', { red: change }]}><slot /></div>
+
+<style>
+  .box { border: 1px solid blue; }
+  .red { border-color: red; }
+  .text { color: cyan;}
+
+</style>

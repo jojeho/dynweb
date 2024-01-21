@@ -1,0 +1,60 @@
+---
+import OpenAI from "openai";
+export const partial = true;
+// console.log(process.env)
+
+const openai = new OpenAI({
+    apiKey: "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",
+});
+
+async function main() {
+    const completion = await openai.chat.completions.create({
+        messages: [
+            { role: "system", content: "You are a helpful assistant." },
+            { role: "user", content: "Who won the world series in 2020?" },
+            {
+                role: "assistant",
+                content:
+                    "The Los Angeles Dodgers won the World Series in 2020.",
+            },
+            { role: "user", content: "Where was it played?" },
+        ],
+        model: "gpt-3.5-turbo",
+    });
+
+    console.log(completion.choices[0]);
+}
+
+async function prompt(message: string) {
+    const completion = await openai.chat.completions.create({
+        messages: [{ role: "user", content: message }],
+        model: "gpt-3.5-turbo",
+    });
+    console.log(completion.choices[0]);
+}
+
+let streamData = "";
+console.log("post");
+const q = Astro.url.searchParams.get("q");
+console.log(q);
+
+
+const stream = await openai.chat.completions
+    .create({
+        messages: [{ role: "user", content: q }],
+        model: "gpt-3.5-turbo",
+        // stream: true,
+    })
+    // .then((chunk) =>console.log(chunk));
+    
+// await prompt(message);
+streamData=stream.choices[0].message.content
+console.log(stream.choices[0])
+---
+
+<pre >
+    <code class="javascript">{streamData}</code>
+</pre>
+
+<script>hljs.highlightAll();</script>
+

@@ -3,6 +3,9 @@
  import "../../index.css"
  const docs = await Astro.glob("../../components/nav/b*.astro");
  console.log(docs)
+ const page= Astro.url.searchParams.get("page")
+ const v= Astro.url.searchParams.get("vvv")
+ console.log(v)
 
  const myMenuBar = {
     items: [
@@ -41,19 +44,25 @@
 
 
  const theme = {
-  primaryColor:'red.300',
+  primaryColor:'blue',
   secondaryColor: "#FFD700",  // Gold
   primaryFont: "Georgia, serif",
   radius: "30px",
     
 };
 
+let primaryColor='red'
+if(page==1)
+{
+    primaryColor='yellow';
+}
+
 ---
 
-
+ <div id="vv">ccc</div>
  {docs.map((item)=>(
     <div>
-    <item.default myMenuBar={myMenuBar} theme={theme} change={1}></item.default>
+    <item.default myMenuBar={myMenuBar} primaryColor={primaryColor} change={1}></item.default>
    </div>
  ))}
  
